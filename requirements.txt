@@ -1,0 +1,11 @@
+python-dotenv
+langchain
+langchain-core
+langchain-community
+chromadb
+pypdf
+langgraph
+langchain-google-genai
+langchain-chroma
+tavily-python
+langchain_text_splitters
