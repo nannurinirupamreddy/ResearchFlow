@@ -221,3 +221,22 @@ In particular, I gained hands-on experience with:
 - Grounding AI responses in private documents
 
 The project also demonstrated the difference between directly prompting an LLM and building an agent capable of retrieving external information when needed.
+
+## Retrieval Evaluation
+
+`eval/evaluate.py` measures how often retrieval finds the page that actually answers a question.
+`eval/questions.json` holds 32 hand-written questions, each labeled with the PDF page(s) that answer it
+and worded differently from the source text. It compares three retrievers over the same
+1,000-character chunks the app uses:
+
+- **bm25**: keyword search
+- **dense**: Gemini embeddings (what the app uses today)
+- **hybrid**: both, merged with reciprocal rank fusion
+
+and reports Recall@1, Recall@4, MRR, and median retrieval time, plus every question each retriever missed.
+
+```bash
+python eval/evaluate.py          # all three (needs GOOGLE_API_KEY in .env)
+python eval/evaluate.py --bm25   # keyword baseline only, no API key
+```
+

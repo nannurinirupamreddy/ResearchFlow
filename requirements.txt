@@ -9,3 +9,4 @@ langchain-google-genai
 langchain-chroma
 tavily-python
 langchain_text_splitters
+rank_bm25
